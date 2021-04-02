@@ -1,0 +1,15 @@
+E:\Coding\Platform\Utilities\PatternUtils\bin\Debug\net5.0\PatternUtils.deps.json
+E:\Coding\Platform\Utilities\PatternUtils\bin\Debug\net5.0\PatternUtils.dll
+E:\Coding\Platform\Utilities\PatternUtils\bin\Debug\net5.0\ref\PatternUtils.dll
+E:\Coding\Platform\Utilities\PatternUtils\bin\Debug\net5.0\PatternUtils.pdb
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.csprojAssemblyReference.cache
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.GeneratedMSBuildEditorConfig.editorconfig
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.AssemblyInfoInputs.cache
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.AssemblyInfo.cs
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.csproj.CoreCompileInputs.cache
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.dll
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\ref\PatternUtils.dll
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.pdb
+E:\Coding\Platform\Utilities\PatternUtils\bin\Debug\net5.0\SyncUtils.dll
+E:\Coding\Platform\Utilities\PatternUtils\bin\Debug\net5.0\SyncUtils.pdb
+E:\Coding\Platform\Utilities\PatternUtils\obj\Debug\net5.0\PatternUtils.csproj.CopyComplete

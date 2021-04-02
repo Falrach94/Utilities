@@ -1,0 +1,394 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "BasicImplementation/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "DiagnosticsInterfaces": "1.0.0",
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "NetworkUtils": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BasicImplementation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BasicImplementation.dll": {}
+        }
+      },
+      "ChatModule/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BasicImplementation": "1.0.0",
+          "DiagnosticsInterfaces": "1.0.0",
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "PlayerModule": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0",
+          "TextInterfaceModule": "1.0.0",
+          "TextParserUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ChatModule.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChatModule.dll": {}
+        }
+      },
+      "ControlModule/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ControlModule.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ControlModule.dll": {}
+        }
+      },
+      "DiagnosticsInterfaces/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/DiagnosticsInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiagnosticsInterfaces.dll": {}
+        }
+      },
+      "DiagnosticsModule/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BasicImplementation": "1.0.0",
+          "DiagnosticsInterfaces": "1.0.0",
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "TextInterfaceModule": "1.0.0",
+          "TextParserUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DiagnosticsModule.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiagnosticsModule.dll": {}
+        }
+      },
+      "GameManagement/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BasicImplementation": "1.0.0",
+          "ChatModule": "1.0.0",
+          "DiagnosticsInterfaces": "1.0.0",
+          "GameSettingsUtilities": "1.0.0",
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "PlayerModule": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0",
+          "TextInterfaceModule": "1.0.0",
+          "TextParserUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GameManagement.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameManagement.dll": {}
+        }
+      },
+      "GameSettingsUtilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/GameSettingsUtilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameSettingsUtilities.dll": {}
+        }
+      },
+      "LogUtils/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LogUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LogUtils.dll": {}
+        }
+      },
+      "MessageUtilities/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MessageUtilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MessageUtilities.dll": {}
+        }
+      },
+      "NetworkUtils/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "LogUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NetworkUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NetworkUtils.dll": {}
+        }
+      },
+      "PlayerModule/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BasicImplementation": "1.0.0",
+          "ControlModule": "1.0.0",
+          "DiagnosticsInterfaces": "1.0.0",
+          "DiagnosticsModule": "1.0.0",
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0",
+          "TextInterfaceModule": "1.0.0",
+          "TextParserUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PlayerModule.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PlayerModule.dll": {}
+        }
+      },
+      "ServerArchitecture/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "NetworkUtils": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ServerArchitecture.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ServerArchitecture.dll": {}
+        }
+      },
+      "SharedData/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SharedData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SharedData.dll": {}
+        }
+      },
+      "SyncUtils/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SyncUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SyncUtils.dll": {}
+        }
+      },
+      "TextInterfaceModule/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BasicImplementation": "1.0.0",
+          "ControlModule": "1.0.0",
+          "LogUtils": "1.0.0",
+          "MessageUtilities": "1.0.0",
+          "NetworkUtils": "1.0.0",
+          "ServerArchitecture": "1.0.0",
+          "SharedData": "1.0.0",
+          "SyncUtils": "1.0.0",
+          "TextParserUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TextInterfaceModule.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TextInterfaceModule.dll": {}
+        }
+      },
+      "TextParserUtils/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MessageUtilities": "1.0.0",
+          "SharedData": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TextParserUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TextParserUtils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BasicImplementation/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/ServerImplementation/BasicImplementation.csproj",
+      "msbuildProject": "../GameServer/ServerImplementation/BasicImplementation.csproj"
+    },
+    "ChatModule/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/ChatModule/ChatModule.csproj",
+      "msbuildProject": "../GameServer/ChatModule/ChatModule.csproj"
+    },
+    "ControlModule/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/ControlModule/ControlModule.csproj",
+      "msbuildProject": "../GameServer/ControlModule/ControlModule.csproj"
+    },
+    "DiagnosticsInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/DiagnosticsInterfaces/DiagnosticsInterfaces.csproj",
+      "msbuildProject": "../GameServer/DiagnosticsInterfaces/DiagnosticsInterfaces.csproj"
+    },
+    "DiagnosticsModule/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/DiagnosticsModule/DiagnosticsModule.csproj",
+      "msbuildProject": "../GameServer/DiagnosticsModule/DiagnosticsModule.csproj"
+    },
+    "GameManagement/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/GameManagement/GameManagement.csproj",
+      "msbuildProject": "../GameServer/GameManagement/GameManagement.csproj"
+    },
+    "GameSettingsUtilities/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/GameSettingsUtilities/GameSettingsUtilities.csproj",
+      "msbuildProject": "../GameServer/GameSettingsUtilities/GameSettingsUtilities.csproj"
+    },
+    "LogUtils/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/LogUtils/LogUtils.csproj",
+      "msbuildProject": "../GameServer/LogUtils/LogUtils.csproj"
+    },
+    "MessageUtilities/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/MessageUtility/MessageUtilities.csproj",
+      "msbuildProject": "../GameServer/MessageUtility/MessageUtilities.csproj"
+    },
+    "NetworkUtils/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/NetworkUtils/NetworkUtils.csproj",
+      "msbuildProject": "../GameServer/NetworkUtils/NetworkUtils.csproj"
+    },
+    "PlayerModule/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/ClientModule/PlayerModule.csproj",
+      "msbuildProject": "../GameServer/ClientModule/PlayerModule.csproj"
+    },
+    "ServerArchitecture/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/GameServer/ServerArchitecture.csproj",
+      "msbuildProject": "../GameServer/GameServer/ServerArchitecture.csproj"
+    },
+    "SharedData/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/GameServerData/SharedData.csproj",
+      "msbuildProject": "../GameServer/GameServerData/SharedData.csproj"
+    },
+    "SyncUtils/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/SyncUtils/SyncUtils.csproj",
+      "msbuildProject": "../GameServer/SyncUtils/SyncUtils.csproj"
+    },
+    "TextInterfaceModule/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/TextInterfaceModule/TextInterfaceModule.csproj",
+      "msbuildProject": "../GameServer/TextInterfaceModule/TextInterfaceModule.csproj"
+    },
+    "TextParserUtils/1.0.0": {
+      "type": "project",
+      "path": "../GameServer/TextParser/TextParserUtils.csproj",
+      "msbuildProject": "../GameServer/TextParser/TextParserUtils.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "GameManagement >= 1.0.0",
+      "GameSettingsUtilities >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Benjamin Zehrer\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameUtilities\\GameUtilities.csproj",
+      "projectName": "GameUtilities",
+      "projectPath": "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameUtilities\\GameUtilities.csproj",
+      "packagesPath": "C:\\Users\\Benjamin Zehrer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameUtilities\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Benjamin Zehrer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameServer\\GameManagement\\GameManagement.csproj": {
+              "projectPath": "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameServer\\GameManagement\\GameManagement.csproj"
+            },
+            "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameServer\\GameSettingsUtilities\\GameSettingsUtilities.csproj": {
+              "projectPath": "C:\\Users\\Benjamin Zehrer\\source\\repos\\MultiplayerFramework\\GameServer\\GameSettingsUtilities\\GameSettingsUtilities.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

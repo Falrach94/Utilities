@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ServerUtils/1.0.0": {
+        "dependencies": {
+          "MessageUtils": "1.0.0"
+        },
+        "runtime": {
+          "ServerUtils.dll": {}
+        }
+      },
+      "MessageUtils/1.0.0": {
+        "dependencies": {
+          "NetworkUtils": "1.0.0",
+          "PatternUtils": "1.0.0"
+        },
+        "runtime": {
+          "MessageUtils.dll": {}
+        }
+      },
+      "NetworkUtils/1.0.0": {
+        "runtime": {
+          "NetworkUtils.dll": {}
+        }
+      },
+      "PatternUtils/1.0.0": {
+        "dependencies": {
+          "SyncUtils": "1.0.0"
+        },
+        "runtime": {
+          "PatternUtils.dll": {}
+        }
+      },
+      "SyncUtils/1.0.0": {
+        "runtime": {
+          "SyncUtils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ServerUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MessageUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NetworkUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PatternUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SyncUtils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

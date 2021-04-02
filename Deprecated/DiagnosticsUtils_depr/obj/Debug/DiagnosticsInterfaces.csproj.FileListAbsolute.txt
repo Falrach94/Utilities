@@ -1,0 +1,13 @@
+C:\Users\Falrach\source\repos\GameServer\DiagnosticsInterfaces\bin\Debug\DiagnosticsInterfaces.dll.config
+C:\Users\Falrach\source\repos\GameServer\DiagnosticsInterfaces\bin\Debug\DiagnosticsInterfaces.dll
+C:\Users\Falrach\source\repos\GameServer\DiagnosticsInterfaces\bin\Debug\DiagnosticsInterfaces.pdb
+C:\Users\Falrach\source\repos\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\Falrach\source\repos\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.dll
+C:\Users\Falrach\source\repos\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\bin\Debug\DiagnosticsInterfaces.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\bin\Debug\DiagnosticsInterfaces.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\bin\Debug\DiagnosticsInterfaces.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.csprojAssemblyReference.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\DiagnosticsInterfaces\obj\Debug\DiagnosticsInterfaces.pdb

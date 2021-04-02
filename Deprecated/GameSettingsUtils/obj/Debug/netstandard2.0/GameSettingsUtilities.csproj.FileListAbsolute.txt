@@ -1,0 +1,8 @@
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\bin\Debug\netstandard2.0\GameSettingsUtilities.deps.json
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\bin\Debug\netstandard2.0\GameSettingsUtilities.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\bin\Debug\netstandard2.0\GameSettingsUtilities.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\obj\Debug\netstandard2.0\GameSettingsUtilities.AssemblyInfoInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\obj\Debug\netstandard2.0\GameSettingsUtilities.AssemblyInfo.cs
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\obj\Debug\netstandard2.0\GameSettingsUtilities.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\obj\Debug\netstandard2.0\GameSettingsUtilities.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\GameSettingsUtilities\obj\Debug\netstandard2.0\GameSettingsUtilities.pdb

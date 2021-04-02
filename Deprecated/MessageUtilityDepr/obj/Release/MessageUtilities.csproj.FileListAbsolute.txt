@@ -1,0 +1,14 @@
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\bin\Release\MessageUtility.dll.config
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\bin\Release\MessageUtility.dll
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\bin\Release\MessageUtility.pdb
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\obj\Release\MessageUtilities.csprojAssemblyReference.cache
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\obj\Release\MessageUtilities.csproj.CoreCompileInputs.cache
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\obj\Release\MessageUtility.dll
+C:\Users\Falrach\source\repos\GameServer\MessageUtility\obj\Release\MessageUtility.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\bin\Release\MessageUtility.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\bin\Release\MessageUtility.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\bin\Release\MessageUtility.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\obj\Release\MessageUtilities.csprojAssemblyReference.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\obj\Release\MessageUtilities.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\obj\Release\MessageUtility.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\MessageUtility\obj\Release\MessageUtility.pdb

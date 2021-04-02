@@ -1,0 +1,142 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "MessageUtils/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "NetworkUtils": "1.0.0",
+          "PatternUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MessageUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MessageUtils.dll": {}
+        }
+      },
+      "NetworkUtils/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/NetworkUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NetworkUtils.dll": {}
+        }
+      },
+      "PatternUtils/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "SyncUtils": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PatternUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PatternUtils.dll": {}
+        }
+      },
+      "SyncUtils/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/SyncUtils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SyncUtils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MessageUtils/1.0.0": {
+      "type": "project",
+      "path": "../MessageUtils/MessageUtils.csproj",
+      "msbuildProject": "../MessageUtils/MessageUtils.csproj"
+    },
+    "NetworkUtils/1.0.0": {
+      "type": "project",
+      "path": "../NetworkUtils/NetworkUtils.csproj",
+      "msbuildProject": "../NetworkUtils/NetworkUtils.csproj"
+    },
+    "PatternUtils/1.0.0": {
+      "type": "project",
+      "path": "../PatternUtils/PatternUtils.csproj",
+      "msbuildProject": "../PatternUtils/PatternUtils.csproj"
+    },
+    "SyncUtils/1.0.0": {
+      "type": "project",
+      "path": "../SyncUtils/SyncUtils.csproj",
+      "msbuildProject": "../SyncUtils/SyncUtils.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "MessageUtils >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Benjamin Zehrer\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\Coding\\Platform\\Utilities\\ServerUtils\\ServerUtils.csproj",
+      "projectName": "ServerUtils",
+      "projectPath": "E:\\Coding\\Platform\\Utilities\\ServerUtils\\ServerUtils.csproj",
+      "packagesPath": "C:\\Users\\Benjamin Zehrer\\.nuget\\packages\\",
+      "outputPath": "E:\\Coding\\Platform\\Utilities\\ServerUtils\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Benjamin Zehrer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "E:\\Coding\\Platform\\Utilities\\MessageUtils\\MessageUtils.csproj": {
+              "projectPath": "E:\\Coding\\Platform\\Utilities\\MessageUtils\\MessageUtils.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

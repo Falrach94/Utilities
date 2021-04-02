@@ -1,0 +1,33 @@
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Debug\LogUtils.dll.config
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Debug\LogUtils.dll
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Debug\LogUtils.pdb
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Debug\NLog.dll
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.csprojAssemblyReference.cache
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.UI.LogSelector.resources
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.csproj.GenerateResource.cache
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.csproj.CoreCompileInputs.cache
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.csproj.CopyComplete
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.dll
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Debug\LogUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Debug\LogUtils.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Debug\LogUtils.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Debug\LogUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Debug\NLog.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csprojAssemblyReference.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.UI.LogSelector.resources
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csproj.GenerateResource.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csproj.CopyComplete
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.pdb
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\bin\Debug\LogUtils.dll.config
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\bin\Debug\LogUtils.dll
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\bin\Debug\LogUtils.pdb
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\bin\Debug\NLog.dll
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csprojAssemblyReference.cache
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.UI.LogSelector.resources
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csproj.GenerateResource.cache
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csproj.CoreCompileInputs.cache
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.csproj.CopyComplete
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.dll
+E:\Coding\MultiplayerFramework\GameServer\LogUtils\obj\Debug\LogUtils.pdb

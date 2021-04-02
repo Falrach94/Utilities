@@ -1,0 +1,12 @@
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.GeneratedMSBuildEditorConfig.editorconfig
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.AssemblyInfoInputs.cache
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.AssemblyInfo.cs
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.csproj.CoreCompileInputs.cache
+E:\Coding\Platform\Utilities\NetworkUtils\bin\Debug\net5.0\NetworkUtils.deps.json
+E:\Coding\Platform\Utilities\NetworkUtils\bin\Debug\net5.0\NetworkUtils.dll
+E:\Coding\Platform\Utilities\NetworkUtils\bin\Debug\net5.0\ref\NetworkUtils.dll
+E:\Coding\Platform\Utilities\NetworkUtils\bin\Debug\net5.0\NetworkUtils.pdb
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.dll
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\ref\NetworkUtils.dll
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.pdb
+E:\Coding\Platform\Utilities\NetworkUtils\obj\Debug\net5.0\NetworkUtils.csprojAssemblyReference.cache

@@ -1,0 +1,13 @@
+C:\Users\Falrach\source\repos\GameServer\SyncUtils\bin\Release\SyncUtils.dll.config
+C:\Users\Falrach\source\repos\GameServer\SyncUtils\bin\Release\SyncUtils.dll
+C:\Users\Falrach\source\repos\GameServer\SyncUtils\bin\Release\SyncUtils.pdb
+C:\Users\Falrach\source\repos\GameServer\SyncUtils\obj\Release\SyncUtils.csproj.CoreCompileInputs.cache
+C:\Users\Falrach\source\repos\GameServer\SyncUtils\obj\Release\SyncUtils.dll
+C:\Users\Falrach\source\repos\GameServer\SyncUtils\obj\Release\SyncUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\bin\Release\SyncUtils.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\bin\Release\SyncUtils.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\bin\Release\SyncUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\obj\Release\SyncUtils.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\obj\Release\SyncUtils.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\obj\Release\SyncUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\SyncUtils\obj\Release\SyncUtils.csprojAssemblyReference.cache

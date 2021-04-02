@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetworkUtils\NetworkUtils.csproj" />
+    <ProjectReference Include="..\PatternUtils\PatternUtils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="depr\" />
+  </ItemGroup>
+
+</Project>

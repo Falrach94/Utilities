@@ -1,0 +1,12 @@
+E:\Coding\Platform\Utilities\DllUtils\bin\Debug\net5.0\DllUtils.deps.json
+E:\Coding\Platform\Utilities\DllUtils\bin\Debug\net5.0\DllUtils.dll
+E:\Coding\Platform\Utilities\DllUtils\bin\Debug\net5.0\ref\DllUtils.dll
+E:\Coding\Platform\Utilities\DllUtils\bin\Debug\net5.0\DllUtils.pdb
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.csprojAssemblyReference.cache
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.GeneratedMSBuildEditorConfig.editorconfig
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.AssemblyInfoInputs.cache
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.AssemblyInfo.cs
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.csproj.CoreCompileInputs.cache
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.dll
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\ref\DllUtils.dll
+E:\Coding\Platform\Utilities\DllUtils\obj\Debug\net5.0\DllUtils.pdb

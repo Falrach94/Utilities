@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B417A40-3C37-4846-9E66-521BA82B79CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TextParser</RootNamespace>
+    <AssemblyName>TextParser</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LinuxTEst|AnyCPU'">
+    <OutputPath>bin\LinuxTEst\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ParserUtils.cs" />
+    <Compile Include="Parser\CommandParser.cs" />
+    <Compile Include="Parser\Exceptions\NoSuchSequenceFoundException.cs" />
+    <Compile Include="Parser\Exceptions\ParseException.cs" />
+    <Compile Include="Parser\ParserResult.cs" />
+    <Compile Include="Parser\ParserRule.cs" />
+    <Compile Include="Parser\ParserSequence.cs" />
+    <Compile Include="Parser\ParserTreeNode.cs" />
+    <Compile Include="Parser\Exceptions\SequenceAlreadyPresentException.cs" />
+    <Compile Include="Tokenizer\Token.cs" />
+    <Compile Include="Tokenizer\TokenDuplicateException.cs" />
+    <Compile Include="Tokenizer\TokenInfo.cs" />
+    <Compile Include="Tokenizer\Tokenizer.cs" />
+    <Compile Include="Tokenizer\TokenMatch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameServerData\SharedData.csproj">
+      <Project>{cd1eedc5-7b80-40fa-89a5-398cc98165a5}</Project>
+      <Name>SharedData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageUtility\MessageUtilities.csproj">
+      <Project>{E489DE0B-217F-4E8F-A7BD-424AD845CA88}</Project>
+      <Name>MessageUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,22 @@
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Release\LogUtils.dll.config
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Release\LogUtils.dll
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Release\LogUtils.pdb
+C:\Users\Falrach\source\repos\GameServer\LogUtils\bin\Release\NLog.dll
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.csprojAssemblyReference.cache
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.UI.LogSelector.resources
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.csproj.GenerateResource.cache
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.csproj.CoreCompileInputs.cache
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.csproj.CopyComplete
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.dll
+C:\Users\Falrach\source\repos\GameServer\LogUtils\obj\Release\LogUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Release\LogUtils.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Release\LogUtils.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Release\LogUtils.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\bin\Release\NLog.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.csprojAssemblyReference.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.UI.LogSelector.resources
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.csproj.GenerateResource.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.csproj.CopyComplete
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\LogUtils\obj\Release\LogUtils.pdb

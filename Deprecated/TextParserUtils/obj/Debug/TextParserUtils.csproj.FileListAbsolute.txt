@@ -1,0 +1,28 @@
+C:\Users\Falrach\source\repos\GameServer\TextParser\obj\Debug\TextParserUtils.csprojAssemblyReference.cache
+C:\Users\Falrach\source\repos\GameServer\TextParser\obj\Debug\TextParserUtils.csproj.CoreCompileInputs.cache
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\TextParser.dll.config
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\TextParser.dll
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\TextParser.pdb
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\GameServerData.dll
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\MessageUtility.dll
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\GameServerData.pdb
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\GameServerData.dll.config
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\MessageUtility.pdb
+C:\Users\Falrach\source\repos\GameServer\TextParser\bin\Debug\MessageUtility.dll.config
+C:\Users\Falrach\source\repos\GameServer\TextParser\obj\Debug\TextParserUtils.csproj.CopyComplete
+C:\Users\Falrach\source\repos\GameServer\TextParser\obj\Debug\TextParser.dll
+C:\Users\Falrach\source\repos\GameServer\TextParser\obj\Debug\TextParser.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\TextParser.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\TextParser.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\TextParser.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\GameServerData.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\MessageUtility.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\GameServerData.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\GameServerData.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\MessageUtility.pdb
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\bin\Debug\MessageUtility.dll.config
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\obj\Debug\TextParserUtils.csprojAssemblyReference.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\obj\Debug\TextParserUtils.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\obj\Debug\TextParserUtils.csproj.CopyComplete
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\obj\Debug\TextParser.dll
+C:\Users\Benjamin Zehrer\source\repos\MultiplayerFramework\GameServer\TextParser\obj\Debug\TextParser.pdb
