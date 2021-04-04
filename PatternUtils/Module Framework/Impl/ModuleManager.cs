@@ -52,6 +52,7 @@ namespace PatternUtils.Module_Framework
 
         public async Task RegisterModuleAsync(ModuleHeader module)
         {
+
             using var token = await _lock.LockAsync();
 
             if (module is null)
@@ -72,7 +73,7 @@ namespace PatternUtils.Module_Framework
                 throw new ArgumentException("Module is already registered!");
             }
 
-            await module.Control.InitializeAsync(this, TransitionTimeout);
+            await module.Control.InitializeAsync(this, TransitionTimeout, token);
 
             foreach (var interf in module.ProvidedInterfaces)
             {
@@ -330,15 +331,27 @@ namespace PatternUtils.Module_Framework
 
         #endregion
 
-        public async Task<T> GetInterfaceAsync<T>()
+        public async Task<T> GetInterfaceAsync<T>(LockToken token)
         {
-            using var token = await _lock.LockAsync();
+            LockToken secondaryToken = null;
+
+            if(token == null)
+            {
+                secondaryToken = await _lock.LockAsync();
+            }
 
             if (!_interfaceTupleDic.ContainsKey(typeof(T)))
             {
                 throw new InterfaceNotFoundException();
             }
-            return (T)_interfaceTupleDic[typeof(T)].Item2;
+            var result = (T)_interfaceTupleDic[typeof(T)].Item2;
+
+            if(token == null)
+            {
+                secondaryToken.Dispose();
+            }
+
+            return result;
         }
 
 

@@ -26,7 +26,7 @@ namespace PatternUtils.Module_Framework
         protected abstract Task StartAsync();
         protected abstract Task StopAsync();
         protected abstract Task UninitializeAsync();
-        protected abstract Task InitializeAsync(IInterfaceProvider interfaceProvider);
+        protected abstract Task InitializeAsync(IInterfaceProvider interfaceProvider, LockToken providerLockToken);
 
         /// <summary>
         /// Creates module data according to implementation.
@@ -68,7 +68,7 @@ namespace PatternUtils.Module_Framework
         /// <exception cref="InvalidModuleStateException"></exception>
         /// <exception cref="ModuleMethodException"></exception>
         /// <exception cref="TimeoutException"></exception>
-        public async Task InitializeAsync(IInterfaceProvider interfaceProvider, TimeSpan timeout)
+        public async Task InitializeAsync(IInterfaceProvider interfaceProvider, TimeSpan timeout, LockToken providerLockToken)
         {
             if (interfaceProvider is null)
             {
@@ -84,7 +84,7 @@ namespace PatternUtils.Module_Framework
 
             try
             {
-                if (!Task.Run(() => InitializeAsync(interfaceProvider)).Wait(timeout))
+                if (!Task.Run(() => InitializeAsync(interfaceProvider, providerLockToken)).Wait(timeout))
                 {
                     throw new TimeoutException("Initialization timed out!");
                 }

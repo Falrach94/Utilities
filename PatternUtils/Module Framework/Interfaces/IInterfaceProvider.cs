@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using SyncUtils;
+using System.Threading.Tasks;
 
 namespace PatternUtils.Module_Framework
 {
@@ -10,7 +11,7 @@ namespace PatternUtils.Module_Framework
         /// <param name="name"></param>
         /// <returns></returns>
         /// <exception cref="InterfaceNotFoundException"></exception>
-        Task<T> GetInterfaceAsync<T>();
+        Task<T> GetInterfaceAsync<T>(LockToken token);
 
     }
 }
