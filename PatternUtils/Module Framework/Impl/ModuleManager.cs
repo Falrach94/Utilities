@@ -90,7 +90,6 @@ namespace PatternUtils.Module_Framework
             foreach (var interf in module.ManagedInterfaces)
             {
                 Type type = interf.Info.Type;
-                //Type type = interf.GetType();
                 if (_managerInterfaceDic.ContainsKey(type))
                 {
                     var manager = _managerInterfaceDic[type];
@@ -130,7 +129,7 @@ namespace PatternUtils.Module_Framework
 
             foreach (var interf in module.ProvidedInterfaces)
             {
-                _interfaceTupleDic.Remove(interf.GetType());
+                _interfaceTupleDic.Remove(interf.Info.Type);
                 _interfaceToModuleDic.Remove(interf);
             }
 
@@ -390,10 +389,18 @@ namespace PatternUtils.Module_Framework
 
             foreach(var interf in module.ProvidedInterfaces)
             {
-                if(_interfaceTupleDic.ContainsKey(interf.GetType()))
+                if (_interfaceTupleDic.ContainsKey(interf.Info.Type))
                 {
                     //interface with this type is already provided by other module
-                    builder.AddConflict(_interfaceTupleDic[interf.GetType()].Item2);
+                    var wrapper = _interfaceTupleDic[interf.Info.Type].Item2;
+                    if (wrapper.Data is IModuleInterface data)
+                    {
+                        builder.AddConflict(data);
+                    }
+                    else
+                    {
+                        builder.AddConflict(wrapper);
+                    }
                 }
             }
 
