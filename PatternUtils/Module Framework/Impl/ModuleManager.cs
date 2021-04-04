@@ -17,7 +17,7 @@ namespace PatternUtils.Module_Framework
         private readonly SemaphoreLock _lock = new();
 
         private readonly Dictionary<Type, IManagerInterface> _managerInterfaceDic = new();
-        private readonly Dictionary<Type, Tuple<InterfaceInfo, IModuleInterface>> _interfaceTupleDic = new();
+        private readonly Dictionary<Type, Tuple<InterfaceInfo, IModuleInterfaceWrapper>> _interfaceTupleDic = new();
 
         private readonly Dictionary<IModuleInterface, ModuleHeader> _interfaceToModuleDic = new();
 
@@ -344,7 +344,7 @@ namespace PatternUtils.Module_Framework
             {
                 throw new InterfaceNotFoundException();
             }
-            var result = (T)_interfaceTupleDic[typeof(T)].Item2;
+            var result = (T)_interfaceTupleDic[typeof(T)].Item2.Data;
 
             if(token == null)
             {

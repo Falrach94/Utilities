@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace PatternUtils.Module_Framework.Impl
 {
-    public class ModuleInterfaceWrapper<T> : ModuleInterface
+    public interface IModuleInterfaceWrapper : IModuleInterface
+    {
+        object Data { get; }
+    }
+    public class ModuleInterfaceWrapper<T> : ModuleInterface, IModuleInterfaceWrapper
     {
         public T Data { get; }
+
+        object IModuleInterfaceWrapper.Data => Data;
 
         public ModuleInterfaceWrapper(T data, Version version)
             :base(new(typeof(T), version))

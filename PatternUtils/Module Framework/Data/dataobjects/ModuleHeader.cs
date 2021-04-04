@@ -1,4 +1,5 @@
 ﻿using PatternUtils.Module_Framework.Data;
+using PatternUtils.Module_Framework.Impl;
 using PatternUtils.Module_Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace PatternUtils.Module_Framework
         internal ModuleHeader(ModuleControl control,
                       ModuleInfo info,
                       InterfaceInfo[] interfaceDependencies,
-                      IModuleInterface[] providedInterfaces,
+                      IModuleInterfaceWrapper[] providedInterfaces,
                       IManagedInterface[] managedInterfaces,
                       IManagerInterface[] managerInterfaces)
         {
@@ -42,7 +43,7 @@ namespace PatternUtils.Module_Framework
         /// <summary>
         /// List of interfaces that other modules can use to access this modules data or functionality.
         /// </summary>
-        public IModuleInterface[] ProvidedInterfaces { get; }
+        public IModuleInterfaceWrapper[] ProvidedInterfaces { get; }
 
         /// <summary>
         /// List of interfaces that can be registered to other modules. 

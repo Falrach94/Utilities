@@ -1,4 +1,5 @@
-﻿using PatternUtils.Module_Framework.Interfaces;
+﻿using PatternUtils.Module_Framework.Impl;
+using PatternUtils.Module_Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace PatternUtils.Module_Framework.Data.builder
         private ModuleControl _control;
         private ModuleInfo? _info;
         private InterfaceInfo[] _interfaceDependencies = Array.Empty<InterfaceInfo>();
-        private IModuleInterface[] _providedInterfaces = Array.Empty<IModuleInterface>();
+        private IModuleInterfaceWrapper[] _providedInterfaces = Array.Empty<IModuleInterfaceWrapper>();
         private IManagedInterface[] _managedInterfaces = Array.Empty<IManagedInterface>();
         private IManagerInterface[] _managerInterfaces = Array.Empty<IManagerInterface>();
 
@@ -37,7 +38,18 @@ namespace PatternUtils.Module_Framework.Data.builder
         }
         public ModuleBuilder SetProvidedInterfaces(params IModuleInterface[] providedInterfaces)
         {
-            _providedInterfaces = providedInterfaces;
+            var wrapperAr = providedInterfaces.Select( i =>
+                {
+                    if(i is IModuleInterfaceWrapper)
+                    {
+                        return i;
+                    }
+
+                    var type = typeof(ModuleInterfaceWrapper<>).MakeGenericType(i.GetType());
+                    return Activator.CreateInstance(type, i, i.Info.Version);
+                }).Cast<IModuleInterfaceWrapper>().ToArray();
+
+            _providedInterfaces = wrapperAr;
             return this;
         }
         public ModuleBuilder SetManagedInterfaces(params IManagedInterface[] managedInterfaces)
