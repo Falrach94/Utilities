@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetworkUtils\NetworkUtils.csproj" />
-    <ProjectReference Include="..\PatternUtils\PatternUtils.csproj" />
+    <Compile Remove="depr\**" />
+    <EmbeddedResource Remove="depr\**" />
+    <None Remove="depr\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="depr\" />
+    <ProjectReference Include="..\NetworkUtils\NetworkUtils.csproj" />
+    <ProjectReference Include="..\PatternUtils\PatternUtils.csproj" />
   </ItemGroup>
 
 </Project>
