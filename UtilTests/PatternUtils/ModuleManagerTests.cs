@@ -124,9 +124,9 @@ namespace UtilTests.PatternUtilsTests
             TestUtils.AssertException<ArgumentException>(manager.ResetModuleAsync(module.Header));
 
             //stop all modules without registered modules
-            Assert.IsTrue(TestUtils.AssertTask(manager.StopAllModulesAsync()));
+            TestUtils.AssertTask(manager.StopAllModulesAsync());
             //start all modules without registered modules
-            Assert.IsTrue(TestUtils.AssertTask(manager.StartAllModulesAsync()));
+            TestUtils.AssertTask(manager.StartAllModulesAsync());
             //start all modules without registered modules
             TestUtils.AssertTask(manager.ResetAllModulesAsync());
 
@@ -191,11 +191,11 @@ namespace UtilTests.PatternUtilsTests
             Assert.AreEqual(ModuleState.Stopped, module.State);
 
             //start all stopped modules            
-            Assert.IsTrue(TestUtils.AssertTask(manager.StartAllModulesAsync()));
+            TestUtils.AssertTask(manager.StartAllModulesAsync());
             Assert.AreEqual(ModuleState.Running, module.State);
 
             //start all stopped modules            
-            Assert.IsTrue(TestUtils.AssertTask(manager.StopAllModulesAsync()));
+            TestUtils.AssertTask(manager.StopAllModulesAsync());
             Assert.AreEqual(ModuleState.Stopped, module.State);
 
         }
@@ -218,12 +218,12 @@ namespace UtilTests.PatternUtilsTests
             Assert.AreEqual(ModuleState.Stopped, module1.State);
             Assert.AreEqual(ModuleState.Stopped, module2.State);
 
-            Assert.IsTrue(TestUtils.AssertTask(manager.StartAllModulesAsync()));
+           TestUtils.AssertTask(manager.StartAllModulesAsync());
 
             Assert.AreEqual(ModuleState.Running, module1.State);
             Assert.AreEqual(ModuleState.Running, module2.State);
 
-            Assert.IsTrue(TestUtils.AssertTask(manager.StopAllModulesAsync()));
+            TestUtils.AssertTask(manager.StopAllModulesAsync());
 
             Assert.AreEqual(ModuleState.Stopped, module1.State);
             Assert.AreEqual(ModuleState.Stopped, module2.State);
@@ -804,7 +804,7 @@ namespace UtilTests.PatternUtilsTests
             TestUtils.AssertTask(manager.StartModuleAsync(b2.Header, true));
 
             //18. start all modules
-            Assert.IsTrue(TestUtils.AssertTask(manager.StartAllModulesAsync()));
+            TestUtils.AssertTask(manager.StartAllModulesAsync());
 
             //19. error: stop module with active dependents (A)
             TestUtils.AssertException<DependencyException>(manager.StopModuleAsync(a2.Header, false));
@@ -816,10 +816,14 @@ namespace UtilTests.PatternUtilsTests
             TestUtils.AssertException<InvalidOperationException>(manager.ResetAllModulesAsync());
 
             //22. stop all modules
+            TestUtils.AssertTask(manager.StartAllModulesAsync());
             TestUtils.AssertTask(manager.StopAllModulesAsync());
 
             //23. reset all modules
             TestUtils.AssertTask(manager.ResetAllModulesAsync());
+
+            //24. start all modules
+            TestUtils.AssertTask(manager.StartAllModulesAsync());
 
 
         }

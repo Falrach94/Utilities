@@ -262,13 +262,11 @@ namespace PatternUtils.Module_Framework
 
         #region start/stop/reset all
 
-        public async Task<bool> StopAllModulesAsync()
+        public async Task StopAllModulesAsync()
         {
             using var token = await _lock.LockAsync();
 
             var modules = new List<ModuleHeader>(_dependencyGraph.DependentList);
-
-            modules.Reverse();
 
             foreach (var m in modules)
             {
@@ -280,19 +278,18 @@ namespace PatternUtils.Module_Framework
                 {
                     await StopModuleAsync(m, false, token);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    return false;
+                    throw new ModuleMethodException("StopModuleAsync failed!", ex);
                 }
             }
-            return true;
         }
 
-        public async Task<bool> StartAllModulesAsync()
+        public async Task StartAllModulesAsync()
         {
             using var token = await _lock.LockAsync();
 
-            var modules = _dependencyGraph.DependentList;
+            var modules = _dependencyGraph.DependingList;
 
             foreach (var m in modules)
             {
@@ -304,12 +301,11 @@ namespace PatternUtils.Module_Framework
                 {
                     await StartModuleAsync(m, false, token);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    return false;
+                    throw new ModuleMethodException("StartModuleAsync failed!", ex);
                 }
             }
-            return true;
         }
 
         public async Task ResetAllModulesAsync()

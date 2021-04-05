@@ -88,8 +88,8 @@ namespace PatternUtils.Module_Framework
         /// <summary>
         /// Stops all modules.
         /// </summary>
-        /// <returns>false: at least one module did not transition to state 'Stopped'</returns>
-        Task<bool> StopAllModulesAsync();
+        /// <exception cref="ModuleMethodException">a module failed to stop</exception>
+        Task StopAllModulesAsync();
         /// <summary>
         /// Resets all modules.
         /// </summary>
@@ -98,8 +98,8 @@ namespace PatternUtils.Module_Framework
         /// <summary>
         /// Starts all modules.
         /// </summary>
-        /// <returns>false: at least one module did not transition to state 'Running'</returns>
-        Task<bool> StartAllModulesAsync();
+        /// <exception cref="ModuleMethodException">a module failed to start</exception>
+        Task StartAllModulesAsync();
 
         /// <summary>
         /// Checks wether dependencies are met and provided interfaces don't create conflicts.
