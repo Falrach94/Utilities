@@ -21,6 +21,87 @@ namespace UtilTests.ServerUtils
     public class EndpointManagerTests
     {
         [TestMethod]
+        public void TestFailingConnectDisconnect()
+        {
+            const int PORT = 1234;
+            const int COUNT = 1;
+
+            TcpClientListener listener = new TcpClientListener();
+            EndpointManager endpointManager = new();
+
+            listener.StartListeningForConnections(PORT);
+            listener.ConnectingClientBlock.LinkTo(endpointManager.IncomingClientBlock);
+
+            //  connect (multiple connects, handler has fix blocking time)
+            //  connect (handler throws exception)
+            //  connect (handler timeout)
+            //  disconnect client
+            //  disconnect all 
+            //  disconnect (multiple disconnects) 
+            //  disconnect client (handler throws exception)
+            //  disconnect client (handler timeout) 
+            //  disconnect (multiple connects, handler has fix blocking time)
+            //  disconnect while connect is still taking place
+            //
+
+            AsyncBarrier barrier = new(COUNT, false);
+            SemaphoreSlim sem = new(1, 1);
+
+            int nextType = 0;
+            int n = 0;
+            endpointManager.EndpointConnectedHandler = async ep =>
+            {
+                await sem.WaitAsync();
+                int t = n++;
+                int type = nextType;
+                nextType = (nextType + 1) % 3;
+                sem.Release();
+
+                if (type == 0 && t < 2)
+                {
+                    throw new Exception();
+                }
+                else if (type == 1)
+                {
+                    while (true) ;
+                }
+                else if(type == 2)
+                {
+                    await barrier.SignalAsync();                    
+                    await Task.Delay(300);
+                }
+            };
+
+            //  connect (multiple connects, handler has fix blocking time)
+            //  connect (handler throws exception)
+            //  connect (handler timeout)
+            List<Task<PacketSocket>> tasks = new();
+            for(int i = 0; i < 3 * COUNT; i++)
+            {
+                tasks.Add(ConnectSocketAsync(PORT));
+            }
+            TestUtils.AssertTask(Task.WhenAll(tasks), 20000);
+            TestUtils.AssertTask(barrier.WaitAsync());
+            List<PacketSocket> sockets = new();
+            for(int i = 0; i < COUNT; i++)
+            {   
+                sockets.Add(tasks[2 + i * 3].Result);
+            }
+            Assert.IsFalse(sockets.Where(s => !s.IsConnected || !s.IsReceiving).Any());
+
+
+
+        }
+        private Task<PacketSocket> ConnectSocketAsync(int port)
+        {
+            return Task.Run(() =>
+            {
+                TcpClient client = new TcpClient("localhost", port);
+                return new PacketSocket(client);
+            });
+        }
+
+        [TestMethod]
         public void TestBasicFunctionality()
         {
             const int PORT = 1234;
@@ -61,33 +142,39 @@ namespace UtilTests.ServerUtils
             IEndpoint localDisconnectEp = null;
             bool local = false;
 
+            bool remoteDisconnect = false;
+
             List<IEndpoint> epList = new List<IEndpoint>();
 
             SemaphoreSlim sem = new(1);
 
-            EventHandler<EndpointChangedEventArgs> connectionChanged = (sender, e) =>
+            endpointManager.EndpointConnectedHandler = async ep =>
             {
-                Assert.AreEqual(expectedType, e.Type);
+                Assert.IsTrue(expectedType == EndpointEventType.Connect);
 
-                sem.Wait();
-                if (e.Type == EndpointEventType.Connect)
-                {
-                    epList.Add(e.Endpoint);
-                }
-                else
-                {
-                    Assert.IsTrue(epList.Remove(e.Endpoint));
-                }
+                await sem.WaitAsync();
+                epList.Add(ep);
 
                 if (local)
                 {
-                    localDisconnectEp = e.Endpoint;
+                    localDisconnectEp = ep;
                 }
 
                 TestUtils.AssertTask(barrier.SignalAsync());
                 sem.Release();
             };
-            endpointManager.EndpointConnectionChanged += connectionChanged;
+            endpointManager.EndpointDisconnectedHandler = async (ep, remote) =>
+            {
+                Assert.AreEqual(remoteDisconnect, remote);
+                Assert.IsTrue(expectedType == EndpointEventType.Disconnect);
+
+                await sem.WaitAsync();
+
+                Assert.IsTrue(epList.Remove(ep));
+
+                TestUtils.AssertTask(barrier.SignalAsync());
+                sem.Release();
+            };
 
             expectedType = EndpointEventType.Connect;
             barrier = new(4, false);
@@ -116,8 +203,9 @@ namespace UtilTests.ServerUtils
             CollectionAssert.AreEquivalent(epList, endpointManager.ConnectedEndpoints);
             Assert.IsNotNull(localDisconnectEp);
 
-            // disconnect client (extern)
+            // disconnect client (remote)
             expectedType = EndpointEventType.Disconnect;
+            remoteDisconnect = true;
             barrier = new(1, false);
             clientRemoteDisconnect.Close();
             TestUtils.AssertTask(barrier.WaitAsync());
@@ -128,6 +216,7 @@ namespace UtilTests.ServerUtils
             CollectionAssert.Contains(endpointManager.ConnectedEndpoints, localDisconnectEp);
 
             // disconnect client (local, null)
+            remoteDisconnect = false;
             TestUtils.AssertException<ArgumentNullException>(endpointManager.DisconnectEndpointAsync(null));
 
             // disconnect client (local, unregistered)

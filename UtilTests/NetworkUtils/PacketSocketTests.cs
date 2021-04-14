@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetworkUtils.Socket;
 using NetworkUtils.Tcp_Client_Listener;
+using SyncUtils.Barrier;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,61 @@ namespace UtilTests.NetworkUtils
 
         }
 
+        [TestMethod]
+        public void TestDisconnect()
+        {
+            const int PORT = 1234;
+            using TcpClientListener listener = new();
+            listener.StartListeningForConnections(PORT);
+
+            List<PacketSocket> sockets = new();
+            const int COUNT = 10;
+
+            List<Task> tasks = new();
+            for (int i = 0; i < COUNT; i++)
+            {
+                tasks.Add(Task.Run(() =>
+                {
+                    PacketSocket socket = new PacketSocket(new());
+                    TestUtils.AssertTask(socket.ConnectAsync("localhost", PORT), 3000);
+                    Assert.IsTrue(socket.IsConnected);
+
+                    socket.DisconnectAsync().Wait();
+                    Assert.IsFalse(socket.IsConnected);
+
+                }));
+            }
+            TestUtils.AssertTask(Task.WhenAll(tasks), 3000);
+
+
+
+
+
+            AsyncBarrier barrier = new(COUNT);
+
+            ActionBlock<TcpClient> aB = new(c =>
+            {
+                c.Close();
+                _=barrier.SignalAsync();
+            });
+
+            listener.ConnectingClientBlock.LinkTo(aB);
+
+
+
+            for (int i = 0; i < COUNT; i++)
+            {
+                Task.Run(() =>
+                {
+                    PacketSocket socket = new PacketSocket(new());
+                    TestUtils.AssertTask(socket.ConnectAsync("localhost", PORT), 3000);
+                    Assert.IsTrue(socket.IsConnected);
+
+                });
+            }
+            TestUtils.AssertTask(barrier.WaitAsync(), 3000);
+
+        }
 
         [TestMethod]
         public void TestBasicFunctionality()
@@ -82,8 +138,7 @@ namespace UtilTests.NetworkUtils
             ResetSockets(out server, out client);
 
             TestPacketSocket_communication(server, client);
-            TestPacketSocket_disconnect(server, client);
-            TestPacketSocket_disconnectedSend(server, client);
+
 
         }
 
@@ -126,22 +181,51 @@ namespace UtilTests.NetworkUtils
 
         }
 
-        private void TestPacketSocket_disconnectedSend(PacketSocket server, PacketSocket client)
+        [TestMethod]
+        public void TestDisconnectedSend()
         {
-            Assert.IsFalse(server.IsConnected);
-            Assert.IsFalse(client.IsConnected);
+            TcpClient client = new();
+            PacketSocket socket = new PacketSocket(client);
 
             byte[] payload = new byte[1024];
 
-            TestUtils.AssertException<InvalidOperationException>(server.SendAsync(payload));
+            TestUtils.AssertException<InvalidOperationException>(socket.SendAsync(payload));
         }
 
-        private void TestPacketSocket_disconnect(PacketSocket server, PacketSocket client)
+        [TestMethod]
+        public void TestLocalRemoteDisconnect()
         {
-            const int Timeout = 100;
+            /*
+             * ensure socket disconnect event is called properly
+             * 
+             * pre: server <-> client: connected
+             * - disconnect client
+             * -> server: remote disconnect
+             * -> client: local disconnect
+             */
+
+            TaskCompletionSource tcs = new();
+
+            const int PORT = 1634;
+            using TcpClientListener listener = new();
+            listener.StartListeningForConnections(PORT);
+            PacketSocket server = null, client;
+            ActionBlock<TcpClient> aB = new(c =>
+            {
+                server = new PacketSocket(c);
+                tcs.SetResult();
+            });
+            listener.ConnectingClientBlock.LinkTo(aB);
+
+            client = new PacketSocket();
+            TestUtils.AssertTask(client.ConnectAsync("localhost", PORT), 3000);
+
+            TestUtils.AssertTask(tcs.Task);
 
             Assert.IsTrue(server.IsConnected);
             Assert.IsTrue(client.IsConnected);
+            Assert.IsTrue(server.IsReceiving);
+            Assert.IsTrue(client.IsReceiving);
 
             TaskCompletionSource<bool> serverDisconnected = new();
             TaskCompletionSource<bool> clientDisconnected = new();
@@ -165,12 +249,13 @@ namespace UtilTests.NetworkUtils
             client.Disconnected += clientDisconnect;
             server.Disconnected += serverDisconnect;
 
-            client.DisconnectAsync().Wait();
-
-            clientDisconnected.Task.Wait(Timeout);
-            serverDisconnected.Task.Wait(Timeout);
+            TestUtils.AssertTask(client.DisconnectAsync());
 
             Assert.IsFalse(client.IsConnected);
+
+            TestUtils.AssertTask(clientDisconnected.Task);
+            TestUtils.AssertTask(serverDisconnected.Task);
+
             Assert.IsFalse(server.IsConnected);
 
             Assert.IsFalse(clientDisconnected.Task.Result, "socket falsely detected remote disconnect");

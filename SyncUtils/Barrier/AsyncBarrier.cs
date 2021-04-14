@@ -61,7 +61,7 @@ namespace SyncUtils.Barrier
                 }
                 else if(!OpenEnd)
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Target count has already been reached!");
                 }
             }
             finally

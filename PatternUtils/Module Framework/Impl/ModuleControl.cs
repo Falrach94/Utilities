@@ -28,17 +28,21 @@ namespace PatternUtils.Module_Framework
         protected abstract Task UninitializeAsync();
         protected abstract Task InitializeAsync(IInterfaceProvider interfaceProvider, LockToken providerLockToken);
 
+        protected virtual void Initialize(object[] data) { }
+
         /// <summary>
         /// Creates module data according to implementation.
         /// </summary>
         /// <exception cref="InitializationFailedException">custom initialization failed</exception>
         /// <exception cref="ArgumentNullException"></exception>
-        protected ModuleControl(string name, PatternUtils.Version version)
+        protected ModuleControl(string name, PatternUtils.Version version, params object[] initParams)
         {
             if (name is null)
             {
                 throw new ArgumentNullException(nameof(name));
             }
+
+            Initialize(initParams);
 
             ModuleBuilder builder = new();
             

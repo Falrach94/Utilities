@@ -437,6 +437,128 @@ namespace UtilTests.PatternUtilsTests
             }
         }
 
+        class ManagedInterface
+        {
+            public Action MockHandler { get; set; }
+            public void MockMethod()
+            {
+                MockHandler?.Invoke();
+            }
+        }
+
+        class ManagedModule : ModuleControl
+        {
+            public ManagedModule()
+                :base("Managed", PatternUtils.Version.Create(1))
+            {
+            }
+
+            public ManagedInterface ManagedInterface { get; } = new();
+
+            protected override void DefineModule(ModuleBuilder builder)
+            {
+                builder.SetManagedInterfaces(new ManagedInterfaceWrapper<ManagedInterface>(ManagedInterface, PatternUtils.Version.Create(1)));
+            }
+
+            protected override Task InitializeAsync(IInterfaceProvider interfaceProvider, LockToken providerLockToken)
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task ResetAsync()
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task StartAsync()
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task StopAsync()
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task UninitializeAsync()
+            {
+                return Task.CompletedTask;
+            }
+        }
+
+        class ManagerModule : ModuleControl
+        {
+            public ManagerModule() : base("manager", PatternUtils.Version.Create(1))
+            {
+            }
+
+            public List<ManagedInterface> List { get; } = new();
+
+            protected override void DefineModule(ModuleBuilder builder)
+            {
+                builder.SetManagerInterfaces(new ManagerInterface<ManagedInterface>(PatternUtils.Version.Create(1), PatternUtils.Version.Create(1),
+                        Register, Unregister));
+            }
+
+            private void Register(ManagedInterface obj)
+            {
+                List.Add(obj);
+            }
+
+            private void Unregister(ManagedInterface obj)
+            {
+                List.Remove(obj);
+            }
+
+            protected override Task InitializeAsync(IInterfaceProvider interfaceProvider, LockToken providerLockToken)
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task ResetAsync()
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task StartAsync()
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task StopAsync()
+            {
+                return Task.CompletedTask;
+            }
+
+            protected override Task UninitializeAsync()
+            {
+                return Task.CompletedTask;
+            }
+        }
+
+        [TestMethod]
+        public void TestManagedInterfaceWrapper()
+        {
+            ModuleManager manager = new();
+            ManagerModule managerModule = new();
+            ManagedModule managedModule1 = new();
+            ManagedModule managedModule2 = new();
+
+            TestUtils.AssertTask(manager.RegisterModuleAsync(managedModule1.Header));
+            TestUtils.AssertTask(manager.RegisterModuleAsync(managerModule.Header));
+            TestUtils.AssertTask(manager.RegisterModuleAsync(managedModule2.Header));
+
+            Assert.AreEqual(2, managerModule.List.Count);
+
+            TestUtils.AssertTask(manager.UnregisterModuleAsync(managerModule.Header));
+
+            Assert.AreEqual(0, managerModule.List.Count);
+
+
+
+        }
+
+
 
         [TestMethod]
         public void ManagedInterfaceTest()

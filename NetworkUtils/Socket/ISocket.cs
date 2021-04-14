@@ -15,7 +15,7 @@ namespace NetworkUtils.Socket
 
         bool IsReceiving { get; }
 
-        Task<bool> Connect(string ip, int port);
+        Task<bool> ConnectAsync(string ip, int port);
         Task DisconnectAsync();
 
         /// <summary>

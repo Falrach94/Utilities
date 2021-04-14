@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PatternUtils.Module_Framework.Impl
 {
-    public class ManagerInterface<TManagedInterface> : ModuleInterface, IManagerInterface
+    public class ManagerInterface<TManagedInterface> : ModuleInterface, IManagerInterface where TManagedInterface : class
     {
         private readonly List<ManagedInterfaceWrapper<TManagedInterface>> _managedInterfaces = new();
 
@@ -46,7 +46,9 @@ namespace PatternUtils.Module_Framework.Impl
 
         protected virtual void OnRegistration(ManagedInterfaceWrapper<TManagedInterface> obj)
         {
-
+        }
+        protected virtual void OnUnregistration(ManagedInterfaceWrapper<TManagedInterface> obj)
+        {
         }
 
         public IDisposable RegisterManagedInterface(IManagedInterface obj)
@@ -75,7 +77,9 @@ namespace PatternUtils.Module_Framework.Impl
         {
             var wrapper = (ManagedInterfaceWrapper<TManagedInterface>)subscribedObject;
             _managedInterfaces.Remove(wrapper);
+            OnUnregistration(wrapper);
             _unregisterAction?.Invoke(wrapper.Data);
         }
+
     }
 }

@@ -30,7 +30,7 @@ namespace MessageUtils.MessageHandler
         /// </summary>
         /// <param name="type">message type</param>
         /// <param name="handler">message handler</param>
-        /// <param name="dataType">type of message data for message dictionary</param>
+        /// <param name="dataType">type of message data for message dictionary (may be null)</param>
         /// <param name="desc">description of message data fields for message dictionary</param>
         /// <exception cref="ArgumentException">type is invalid or already in use</exception>
         protected void RegisterMessage(string type,
@@ -46,11 +46,6 @@ namespace MessageUtils.MessageHandler
             if (handler is null)
             {
                 throw new ArgumentNullException(nameof(handler));
-            }
-
-            if (dataType is null)
-            {
-                throw new ArgumentNullException(nameof(dataType));
             }
 
             if (desc is null)

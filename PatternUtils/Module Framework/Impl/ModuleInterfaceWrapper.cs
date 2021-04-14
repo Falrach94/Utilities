@@ -11,7 +11,7 @@ namespace PatternUtils.Module_Framework.Impl
     {
         object Data { get; }
     }
-    public class ModuleInterfaceWrapper<T> : ModuleInterface, IModuleInterfaceWrapper
+    public class ModuleInterfaceWrapper<T> : ModuleInterface, IModuleInterfaceWrapper where T : class
     {
         public T Data { get; }
 
@@ -20,7 +20,7 @@ namespace PatternUtils.Module_Framework.Impl
         public ModuleInterfaceWrapper(T data, Version version)
             :base(new(typeof(T), version))
         {
-            Data = data;
+            Data = data ?? throw new ArgumentNullException(nameof(data));
         }
     }
 }

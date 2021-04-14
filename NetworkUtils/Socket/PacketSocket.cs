@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 
@@ -18,9 +19,9 @@ namespace NetworkUtils.Socket
     public class PacketSocket : ISocket
     {
         private TcpClient _socket;
-        private bool _localDisconnectOngoing = false;
+     //   private bool _localDisconnectOngoing = false;
         private Task _receiveTask;
-
+        private CancellationTokenSource _cts;
 
 
         public event EventHandler<DisconnectedArgs> Disconnected;
@@ -29,70 +30,111 @@ namespace NetworkUtils.Socket
 
         public bool IsReceiving { get; private set; } = false;
 
-        public PacketSocket(TcpClient client) 
+        public PacketSocket(TcpClient client)
         {
-            _socket = client;
+            _socket = client ?? throw new ArgumentNullException(nameof(client));
 
-            _receiveTask = ReceiveHandler();
+            if (client.Connected)
+            {
+                _receiveTask = ReceiveHandler();
+            }
+        }
+        public PacketSocket()
+            : this(new TcpClient())
+        {
         }
 
 
         private async Task ReceiveHandler()
         {
-            try
-            {
+            _cts = new();
+            /*try
+            {*/
                 IsReceiving = true;
                 while (_socket.Connected)
                 {
                     byte[] headBuffer = new byte[4];
-
-                    if (!await _socket.GetStream().ReadUntilCompleteAsync(headBuffer))
+                    
+                    if (!await _socket.GetStream().ReadUntilCompleteAsync(headBuffer, _cts.Token))
                     {
-                        Disconnect(true);
+                        HandleDisconnect(!_cts.Token.IsCancellationRequested);
+                        break;
                     }
 
                     byte[] buffer = new byte[BitConverter.ToInt32(headBuffer)];
 
-                    if (!await _socket.GetStream().ReadUntilCompleteAsync(buffer))
+                    if (!await _socket.GetStream().ReadUntilCompleteAsync(buffer, _cts.Token))
                     {
-                        Disconnect(true);
+                        HandleDisconnect(!_cts.Token.IsCancellationRequested);
+                        break;
                     }
 
                     IncomingBufferBlock.Post(buffer);
                 }
+                /*
             }
             catch(IOException)
             {
-                //disconnect was called
+                int t = 0;
+                //socket was closed
             }
-            catch(ObjectDisposedException)
+            catch(ObjectDisposedException ex)
             {
+                int t = 0;
                 //disconnect was called 
             }
+            catch
+            {
+                int t = 0;
+            }*/
             IsReceiving = false;
+            _receiveTask = null;
         }
 
-        private void Disconnect(bool remote)
+        private void HandleDisconnect(bool remote)
         {
-            if (!_localDisconnectOngoing || !remote)
-            {
-                _socket.Close();
-                Disconnected?.Invoke(this, new DisconnectedArgs(remote));
-            }
+            /*
+             * Disconnect paths:
+             *  pre: receive handler running, send possible in progress
+             * - local disconnect:
+             *      - DisconnectAsync
+             *      -> cancel token 
+             *          ReceiveHandler
+             *          -> HandleDisconnect(remote = !token.canceled)
+             *              - socket.close
+             *              - event disconnected
+             * - remote disconnect
+             *      - socket loses connection
+             *          ReceiveHandler
+             *          -> HandleDisconnect(remote = !token.canceled)
+             *              - event disconnected
+             */
+
+
+            _socket.Close();
+
+            Disconnected?.Invoke(this, new DisconnectedArgs(remote));
+
+
         }
 
 
 
         public async Task DisconnectAsync()
         {
-            _localDisconnectOngoing = true;
-            Disconnect(false);
+            _cts.Cancel();
+            // _localDisconnectOngoing = true;
+            //HandleDisconnect(false);
             await _receiveTask;
         }
 
-        public async Task<bool> Connect(string ip, int port)
+        public async Task<bool> ConnectAsync(string ip, int port)
         {
-            _localDisconnectOngoing = false;
+            if (_receiveTask != null)
+            {
+                throw new InvalidOperationException("Receive task is already running!");
+            }
+            //_localDisconnectOngoing = false;
             _socket = new TcpClient();
             try
             {
@@ -102,7 +144,10 @@ namespace NetworkUtils.Socket
             {
                 return false;
             }
+
+
             _receiveTask = ReceiveHandler();
+
             return true;
 
         }

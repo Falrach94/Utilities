@@ -29,19 +29,19 @@ namespace ServerUtils
 
         ISourceBlock<RawMessage> IRawMessageReceiver.RawMessageBlock => RawMessageBlock;
 
-
-        public event EventHandler<EndpointChangedEventArgs> EndpointConnectionChanged;
+        public EndpointConnectedCallback EndpointConnectedHandler { get; set; }
+        public EndpointDisconnectedCallback EndpointDisconnectedHandler { get; set; }
 
         public EndpointManager()
         {
-            _incomingClientHandlerBlock = new ActionBlock<TcpClient>(HandleIncomingClient);
+            _incomingClientHandlerBlock = new ActionBlock<TcpClient>(HandleIncomingClient, new ExecutionDataflowBlockOptions() { MaxDegreeOfParallelism = -1 });
         }
 
         /// <summary>
         /// register new endpoint and propagate event
         /// </summary>
         /// <param name="endpoint"></param>
-        private void HandleIncomingClient(TcpClient client)
+        private async Task HandleIncomingClient(TcpClient client)
         {
             if (!client.Connected)
             {
@@ -50,9 +50,7 @@ namespace ServerUtils
 
             var endpoint = new MessageEndpoint(new PacketSocket(client));
 
-            var task = _lock.LockAsync();
-            task.Wait();
-            using (var l = task.Result)
+            using (var l = await _lock.LockAsync())
             {
 
                 //bundle messages from all endpoints to one output block
@@ -65,8 +63,15 @@ namespace ServerUtils
                 endpoint.Disconnected += Endpoint_Disconnected;
             }
 
-            //propagate event
-            EndpointConnectionChanged?.Invoke(this, EndpointChangedEventArgs.NewConnection(endpoint));
+            try
+            {
+                //propagate event
+                await EndpointConnectedHandler?.Invoke(endpoint);
+            }
+            catch
+            {
+                await DisconnectEndpointAsync(endpoint);
+            }
         }
 
 
@@ -77,27 +82,35 @@ namespace ServerUtils
         /// <param name="e"></param>
         private void Endpoint_Disconnected(object sender, DisconnectedArgs e)
         {
-            var endpoint = (MessageEndpoint)sender;
-
-            var task = _lock.LockAsync();
-            task.Wait();
-            using (var l = task.Result)
+            Task.Run(async () =>
             {
-                //remove disconnect event
-                endpoint.Disconnected -= Endpoint_Disconnected;
+                var endpoint = (MessageEndpoint)sender;
 
-                //remove message link
-                _linkDic[endpoint].Dispose();
-                _linkDic.Remove(endpoint);
-
-                if(_disconnectDic.ContainsKey(endpoint))
+                using (var l = await _lock.LockAsync())
                 {
-                    _disconnectDic[endpoint].SetResult();
-                    _disconnectDic.Remove(endpoint);
+                    //remove disconnect event
+                    endpoint.Disconnected -= Endpoint_Disconnected;
+
+                    //remove message link
+                    _linkDic[endpoint].Dispose();
+                    _linkDic.Remove(endpoint);
+
+                    if (_disconnectDic.ContainsKey(endpoint))
+                    {
+                        _disconnectDic[endpoint].SetResult();
+                        _disconnectDic.Remove(endpoint);
+                    }
                 }
-            }
-            //propagate event
-            EndpointConnectionChanged?.Invoke(this, EndpointChangedEventArgs.Disconnect(endpoint, e));
+                try
+                {
+                    if (EndpointDisconnectedHandler is not null)
+                    {
+                        //propagate event
+                        await EndpointDisconnectedHandler.Invoke(endpoint, e.RemoteDisconnect);
+                    }
+                }
+                catch { }
+            });
         }
 
         /// <summary>

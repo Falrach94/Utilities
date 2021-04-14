@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PatternUtils.Module_Framework.Impl
 {
-    public class ManagedInterfaceWrapper<T> : ModuleInterfaceWrapper<T>, IManagedInterface
+    public class ManagedInterfaceWrapper<T> : ModuleInterfaceWrapper<T>, IManagedInterface where T : class
     {
         private IDisposable _unsubscriber;
 
